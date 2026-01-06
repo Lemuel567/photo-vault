@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  email    String   @unique // Every user needs a unique identifier
+  password String
+  photos   photos[] 
+}
+
+model photos {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  imageUrl    String
+  publicId    String   // Required by your photoRoute.js code
+  isPublic    Boolean  @default(false) // Required by your photoRoute.js code
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+}
