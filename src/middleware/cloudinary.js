@@ -1,7 +1,7 @@
 import { v2 as cloudinary } from 'cloudinary';
 import dotenv from 'dotenv';
 
-// Load environment variables
+
 dotenv.config();
 
 cloudinary.config({
@@ -10,5 +10,5 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_SECRET_KEY
 });
 
-// Use named export or default export
+
 export default cloudinary;
