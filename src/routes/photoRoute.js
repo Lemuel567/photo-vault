@@ -15,7 +15,7 @@ router.post('/', upload.single('image'), async (req, res) => {
             folder: 'my_gallery'
         });
 
-        // 2. DELETE local file after upload is complete
+        // 2. DELETE file after upload is complete
         fs.unlinkSync(req.file.path); 
 
         // 3. Save to SQLite
