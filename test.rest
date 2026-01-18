@@ -1,0 +1,50 @@
+
+
+### STEP 1: Register a new user
+POST http://localhost:5001/auth/register
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+### STEP 1: login a new user
+POST http://localhost:5001/auth/login
+Content-Type: application/json
+
+{
+    "email": "user@example.com",
+    "password": "password123"
+}
+
+
+
+
+### STEP 3: Upload Photo
+POST http://localhost:5001/photos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNzY3NzI3MjM1LCJleHAiOjE3Njc4MTM2MzV9.-BuMfbBsNdfWftahAxSBqpXDCEPI3ODNdEmGccW86Zs
+Content-Type: multipart/form-data; boundary=MyBoundary
+
+--MyBoundary
+Content-Disposition: form-data; name="title"
+
+My test Cloudinary Upload
+--MyBoundary
+Content-Disposition: form-data; name="description"
+
+Testing the upload
+--MyBoundary
+Content-Disposition: form-data; name="visibility"
+
+public
+--MyBoundary
+Content-Disposition: form-data; name="userId"
+
+3
+--MyBoundary
+Content-Disposition: form-data; name="image"; filename=";test.jpg"
+Content-Type: image/jpeg
+
+< ./test.jpg
+--MyBoundary--

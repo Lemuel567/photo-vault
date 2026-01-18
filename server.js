@@ -13,5 +13,5 @@ app.use('/auth', authRouter)
 const PORT = 5001
 
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port number ${PORT}`)
 });
