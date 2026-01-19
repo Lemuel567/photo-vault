@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
         });
 
         if (!user || !bcrypt.compareSync(password, user.password)) {
-            return res.status(401).json({ message: "Invalid details" });
+            return res.status(401).json({ message: "inaccurate credentials" });
         }
 
         const token = jwt.sign(
